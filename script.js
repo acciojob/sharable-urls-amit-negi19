@@ -1,21 +1,22 @@
 // your code here
-const form=document.getElementById("form");
+const button=document.getElementById("button");
 const url=document.getElementById("url");
 
-form.addEventListener("submit",function(e){
+button.addEventListener("click",function(e){
 	e.preventDefault();
 
 	let name=document.getElementById("name").value;
 	let year=document.getElementById("year").value;
 
-	let query[];
+	let result="https://localhost:8080/";
 
-	if(name)query.push(`name=${name}`);
-	if(year)query.push(`year=${year}`);
-
-	url.textContent="https://localhost:8080/";
-	if(query.length>0){
-		url.textContent +="?"+query.join("&");
+	if(name && year){result+= `?name=${name}`;
+	}				 
+	else if{(name)result+=`?name=${name}`;
+    }else if(year){
+	result+= `?year=${year}`;
 	}
+
+	url.textContent=result;
 	
 });
